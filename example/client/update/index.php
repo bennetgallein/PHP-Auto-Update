@@ -4,9 +4,11 @@ require(__DIR__ . '/../../../vendor/autoload.php');
 
 use \VisualAppeal\AutoUpdate;
 
+\Tracy\Debugger::enable();
+
 $update = new AutoUpdate(__DIR__ . '/temp', __DIR__ . '/../', 60);
-$update->setCurrentVersion('0.1.0');
-$update->setUpdateUrl('http://php-auto-update.app/server'); //Replace with your server update directory
+$update->setCurrentVersion('0.0.1');
+$update->setUpdateUrl('http://server/design/personal_new/api/update/1'); //Replace with your server update directory
 
 // Optional:
 $update->addLogHandler(new Monolog\Handler\StreamHandler(__DIR__ . '/update.log'));
@@ -23,7 +25,7 @@ if ($update->newVersionAvailable()) {
     echo 'Installing Updates: <br>';
     echo '<pre>';
     var_dump(array_map(function ($version) {
-        return (string) $version;
+        return (string)$version;
     }, $update->getVersionsToUpdate()));
     echo '</pre>';
 
@@ -35,15 +37,14 @@ if ($update->newVersionAvailable()) {
     }
 
     // Optional Callback function - on each version update
-    function eachUpdateFinishCallback($updatedVersion)
-    {
+    function eachUpdateFinishCallback($updatedVersion) {
         echo '<h3>CALLBACK for version ' . $updatedVersion . '</h3>';
     }
+
     $update->onEachUpdateFinish('eachUpdateFinishCallback');
 
     // Optional Callback function - on each version update
-    function onAllUpdateFinishCallbacks($updatedVersions)
-    {
+    function onAllUpdateFinishCallbacks($updatedVersions) {
         echo '<h3>CALLBACK for all updated versions:</h3>';
         echo '<ul>';
         foreach ($updatedVersions as $v) {
@@ -51,6 +52,7 @@ if ($update->newVersionAvailable()) {
         }
         echo '</ul>';
     }
+
     $update->setOnAllUpdateFinishCallbacks('onAllUpdateFinishCallbacks');
 
     // This call will only simulate an update.

@@ -1,19 +1,27 @@
 {
-    "name": "visualappeal/php-auto-update",
+    "name": "bennetgallein/php-auto-update",
     "description": "Autoupdater for PHP",
     "license": "MIT",
     "authors": [
         {
             "name": "Tim Helfensdörfer",
             "email": "tim@visualappeal.de"
+        },
+        {
+            "name": "Bennet Gallein",
+            "email": "me@bennetgallein.de"
         }
     ],
     "minimum-stability": "stable",
     "require": {
+        "php": ">= 7.1.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-zip": "*",
+        "composer/semver": "1.4.*",
         "desarrolla2/cache": "2.1.*",
         "monolog/monolog": "1.23.*",
-        "php": ">= 7.1.0",
-        "composer/semver": "1.4.*"
+        "tracy/tracy": "^2.5"
     },
     "require-dev": {
         "phpunit/phpunit": "7.4.*"
