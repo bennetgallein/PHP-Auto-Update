@@ -8,7 +8,7 @@ use \VisualAppeal\AutoUpdate;
 
 $update = new AutoUpdate(__DIR__ . '/temp', __DIR__ . '/../', 60);
 $update->setCurrentVersion('0.0.1');
-$update->setUpdateUrl('http://server/design/personal_new/api/update/1'); //Replace with your server update directory
+$update->setUpdateUrl('http://server/shop/PHP-Auto-Update/example/server/update.json'); //Replace with your server update directory
 
 // Optional:
 $update->addLogHandler(new Monolog\Handler\StreamHandler(__DIR__ . '/update.log'));
