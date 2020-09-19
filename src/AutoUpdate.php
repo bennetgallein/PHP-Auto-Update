@@ -505,6 +505,7 @@ class AutoUpdate {
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($curl, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
         $update = curl_exec($curl);
 
         $error = false;
