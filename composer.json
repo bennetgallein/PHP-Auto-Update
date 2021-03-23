@@ -18,7 +18,7 @@
         "ext-curl": "*",
         "ext-json": "*",
         "ext-zip": "*",
-        "composer/semver": "1.4.*",
+        "composer/semver": "^3.0",
         "desarrolla2/cache": "2.1.*",
         "monolog/monolog": "1.23.*",
         "tracy/tracy": "^2.5"
